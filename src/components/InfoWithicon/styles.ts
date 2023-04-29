@@ -7,7 +7,6 @@ export const InfoWithIconContainer = styled.div`
 `
 interface IconContainerProps{
     iconBg: string;
-
 }
 
 export const IconContainer = styled.div<IconContainerProps>`

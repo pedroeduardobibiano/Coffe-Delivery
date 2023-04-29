@@ -12,7 +12,7 @@ export function OurCoffes(){
             <CoffeList>
 
             {coffees.map((coffee)=>{
-                return <CoffeCard key={coffee.id} coffee={coffee}/>
+                return <CoffeCard key={coffee.id} coffee={coffee} />
             })}
 
             </CoffeList>

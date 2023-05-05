@@ -8,12 +8,11 @@ const DELIVERY_PRICE = 3.5;
 
 export function ConfimationSection() {
   const { cartItemsTotal, cartQuantity } = useCart();
-  const cartTotal = DELIVERY_PRICE + cartItemsTotal
+  const cartTotal = DELIVERY_PRICE + cartItemsTotal;
 
-
-  const formattedItemsTotal = FormatMoney(cartItemsTotal) 
-  const formattedCartTotal = FormatMoney(cartTotal) 
-  const formatDeliveryPrice = FormatMoney(DELIVERY_PRICE) 
+  const formattedItemsTotal = FormatMoney(cartItemsTotal);
+  const formattedCartTotal = FormatMoney(cartTotal);
+  const formatDeliveryPrice = FormatMoney(DELIVERY_PRICE);
 
   return (
     <ConfimationSectionContainer>
@@ -34,7 +33,11 @@ export function ConfimationSection() {
           R$ {formattedCartTotal}
         </RegularText>
       </div>
-      <Button text="Confirmar Pedido" disabled={cartQuantity <= 0} />
+      <Button
+        text="Confirmar Pedido"
+        disabled={cartQuantity <= 0}
+        type="submit"
+      />
     </ConfimationSectionContainer>
   );
 }

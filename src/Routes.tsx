@@ -5,6 +5,8 @@ import { HomePage } from "./pages/Home";
 import { CompleteOrder } from "./pages/CompleteOrder";
 import { OrderConfimedPage } from "./pages/OrderConfimed";
 
+
+
 export function Router() {
     return (
         <Routes>

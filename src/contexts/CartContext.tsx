@@ -29,6 +29,7 @@ const COFFE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = localStorage.getItem(COFFE_ITEMS_STORAGE_KEY);
     if (storedCartItems) {
@@ -68,11 +69,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       );
       if (CoffeExistInCart >= 0) {
         const item = draft[CoffeExistInCart];
-        draft[CoffeExistInCart].quantity =
+        item.quantity =
           type === "increase" ? item.quantity + 1 : item.quantity - 1;
 
-        // (type === "increase" && item.quantity + 1) ||
-        // (type === "decrease" && item.quantity - 1) ||
         // item.quantity;
 
         // draft[CoffeExistInCart].quantity += (type === "increase" && 1) || -1;

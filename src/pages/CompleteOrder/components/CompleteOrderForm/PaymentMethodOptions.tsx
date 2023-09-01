@@ -21,13 +21,9 @@ export const paymentMethods = {
 };
 
 export function PaymentMethodOptions() {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  const { register, formState: { errors }} = useFormContext();
 
-  const paymentMethodError = errors?.paymentMethod
-    ?.message as unknown as string;
+  const paymentMethodError = errors?.paymentMethod?.message as unknown as string;
   return (
     <PaymentMethodOptionContainer>
       {Object.entries(paymentMethods).map(([key, { label, icon }]) => {

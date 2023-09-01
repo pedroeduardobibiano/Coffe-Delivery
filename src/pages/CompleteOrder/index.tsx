@@ -49,6 +49,8 @@ export function CompleteOrder() {
       state: data,
     });
     cleanCart();
+
+    console.log(data)
   }
 
   return (

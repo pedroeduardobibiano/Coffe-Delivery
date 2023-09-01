@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
-import { Input } from "../../../../components/Input";
+// import { Input } from "../../../../components/Input";
 import { AddressFormContainer } from "./styles";
+import { Input } from "../../../../components/Input";
 
 interface ErrorsType {
   errors: {
@@ -15,9 +16,29 @@ export function AddressForm() {
 
   const { errors } = formState as unknown as ErrorsType;
 
+  const inputFields = [
+    { placeholder: "CEP", type: "number", className: "cep", name: "cep", error: errors.cep?.message },
+    { placeholder: "Rua", className: "street", name: "street", error: errors.street?.message },
+    { placeholder: "Numero", type: "number", className: "number", name: "number", error: errors.number?.message },
+    { placeholder: "Complemento", className: "complement", name: "complement", error: errors.complement?.message, rightText: "Opcional" },
+    { placeholder: "Bairro", name: "district", error: errors.district?.message },
+    { placeholder: "Cidade", name: "city", error: errors.city?.message },
+    { placeholder: "UF", name: "uf", error: errors.uf?.message },
+  ];
+  
+  const renderedInputs = inputFields.map((field, index) => (
+    <Input
+      key={index}
+      {...register(field.name)}
+      {...field}
+      {...errors}
+    />
+  ));
+
   return (
     <AddressFormContainer>
-      <Input
+      {renderedInputs}
+      {/* <Input
         placeholder="CEP"
         type="number"
         className="cep"
@@ -58,7 +79,7 @@ export function AddressForm() {
         error={errors.city?.message}
       />
 
-      <Input placeholder="UF" {...register("uf")} error={errors.uf?.message} />
+      <Input placeholder="UF" {...register("uf")} error={errors.uf?.message} /> */}
     </AddressFormContainer>
   );
 }
